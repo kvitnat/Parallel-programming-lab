@@ -20,9 +20,12 @@ int main()
     auto end = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     std::cout << "Concurrent: " << elapsed.count() << "\n";
+
+    //check for errors
     for (int i = 0; i < N-1; ++i)
         if(array[i]>array[i+1])
            { std::cout << i << " " << array[i] << " not sorted!!!\n"; break;}
+    delete [] array;
     return 0;
 }
 

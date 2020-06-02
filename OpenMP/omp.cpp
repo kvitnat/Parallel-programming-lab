@@ -25,9 +25,15 @@ int main()
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     std::cout << "OpenMP: " << elapsed.count() << "\n";
 
+    //check for errors
     for (int i = 0; i < N-1; ++i)
-        if(array[i]>array[i+1])
-           { std::cout << i << " not sorted!!!\n"; break;}
+        if(array[i]>array[i+1]){
+            std::cout << i << " not sorted!!!\n"; 
+            break;
+	    }
+        
+    delete [] array;
+
     return 0;
 }
 

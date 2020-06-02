@@ -49,6 +49,16 @@ int main(int argc, char* argv[])
     if (ProcRank == 0) 
         std::cout << "MPI: " << elapsed.count() << "\n";
 
+    if (ProcRank == 0)
+    {
+    //check for errors
+        for (int i = 0; i < N-1; ++i)
+            if(array[i]>array[i+1]){
+            std::cout << i << " not sorted!!!\n"; 
+            break;
+        }
+    }
+    
     delete [] array;
     delete [] partArray;
 
